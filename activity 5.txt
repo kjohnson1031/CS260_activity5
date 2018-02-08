@@ -1,0 +1,81 @@
+FizzBuzz Example:
+// Print numbers between 1 and 100. If divisible by 3, print "fizz". If divisible by 5, print "buzz".
+// If divisible by 3 and 5, print "fizzbuzz"
+for (var i=0; i <= 100; i++)
+{
+  if(i % 3 === 0 && i % 5 === 0)
+    console.log("Fizzbuzz");
+  else if(i % 3 === 0)
+    console.log("Fizz");
+  else if (i % 5 === 0)
+    console.log("Buzz");
+  else
+  console.log(i);
+}
+
+// Returns the minimum number.
+
+function min(a, b){
+  if(a < b)
+    return a;
+  return b;
+}
+
+// Recursion example:
+
+function isEven(a){
+  if (a === 0)
+    return true;
+  if (a === 1)
+    return false;
+  if(a < 0)
+    return isEven(a + 2);
+  else
+  	return isEven(a - 2);
+}
+
+// Range function (step is optional)
+
+function range(start, end, step){
+  if(step === undefined)
+    step = 1;
+  var result =[];
+  for(var i=start; i <= end; i += step){
+    result.push(i);
+  }
+  result.push(end);
+  return result;
+}
+
+// A List Function
+
+function arrayToList(array){
+  var list = null;
+  array = array.reverse();
+  for(var i = 0; i < array.length; i++){
+    var next_item = array[i];
+    list = {value: next_item, rest: list};
+  }
+  return list;
+}
+
+function listToArray(list){
+  var array = [];
+  for (var node = list; node; node = node.rest) {
+    array.push(node.value);
+  }
+  return array;
+}
+
+function prepend(element, list){
+  var new_list = {value: element, rest: list};
+  return new_list;
+}
+
+function nth(list, number){
+  var node = list; //temp variable to hold rest of list
+  for(var i = 0; i < number; i++){
+    node = node.rest;
+  }
+  return node.value;
+}
